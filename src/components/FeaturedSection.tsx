@@ -1,4 +1,5 @@
 import * as React from "react"
+import Image from "next/image";
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -27,8 +28,6 @@ const produse = [
     "cercei",
 ]
 
-
-
 export function FeaturedSection() {
     return (
         <Carousel className="w-[90%] m-4"
@@ -42,8 +41,8 @@ export function FeaturedSection() {
                         <CarouselItem key={index} className="basis-1/5">
                             <a href={"/product/" + produs}>
                                 <Card>
-                                    <CardContent className="flex aspect-square">
-                                        {produs}
+                                    <CardContent className="flex aspect-square transition-all duration-500 hover:brightness-75">
+                                        <img src={"/" + produs + ".jpg"} alt="" />
                                     </CardContent>
                                 </Card>
                             </a>
