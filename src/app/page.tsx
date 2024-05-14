@@ -1,6 +1,30 @@
 import { FeaturedSection } from "@/components/FeaturedSection";
 import Image from "next/image";
 
+const produse = [
+    "black tee",
+    "black tee",
+    "black tee",
+    "black hoodie",
+    "black hoodie",
+    "black hoodie",
+    "black shorts",
+    "black shorts",
+    "black shorts"
+]
+
+const preturi = [
+    "19.99€",
+    "19.99€",
+    "19.99€",
+    "49.99€",
+    "49.99€",
+    "49.99€",
+    "29.99€",
+    "29.99€",
+    "29.99€"
+]
+
 export default function Home() {
     return (
         <div>
@@ -25,3 +49,5 @@ export default function Home() {
         </div>
     );
 }
+
+export { produse, preturi }

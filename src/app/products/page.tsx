@@ -1,28 +1,5 @@
 import Image from "next/image";
-
-const produse = [
-    "black tee",
-    "black tee",
-    "black tee",
-    "black hoodie",
-    "black hoodie",
-    "black hoodie",
-    "black shorts",
-    "black shorts",
-    "black shorts"
-]
-
-const preturi = [
-    "19.99€",
-    "19.99€",
-    "19.99€",
-    "49.99€",
-    "49.99€",
-    "49.99€",
-    "29.99€",
-    "29.99€",
-    "29.99€"
-]
+import { produse, preturi } from "../page";
 
 export default function Page() {
     return (
@@ -33,7 +10,7 @@ export default function Page() {
                         <a href={"/product/" + produs} className="w-[25%]">
                             <div className="border-solid flex flex-col justify-center items-center w-full min-h-[650px] hover:scale-110 hover:cursor-pointer transition-all duration-300">
                                 <img src={"/" + produs + ".jpg"} alt="" />
-                                <h1 className="text-3xl text-center capitalize text-white">{produs}</h1>
+                                <h1 className="text-3xl text-center capitalize text-white">{produs} {index}</h1>
                                 <h1 className="text-2xl text-center text-white brightness-75">{preturi[index]}</h1>
                             </div>
                         </a>
