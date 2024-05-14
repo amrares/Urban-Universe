@@ -29,11 +29,11 @@ export function Navbar() {
                     <div className="hover:-rotate-180 duration-500 scale-150">🛒</div>
                     {/* cart drop menu */}
                     <div
-                        className={`bg-zinc-700 duration-500 py-4 absolute right-0 top-[104px] w-72 max-h-[50vh] ${isCartShown
+                        className={`cursor-default flex justify-center items-center bg-zinc-700 rounded-lg border-solid border-4 border-color-white duration-500 py-4 absolute right-0 top-[104px] w-72 min-h-[70px] max-h-[50vh] ${isCartShown
                             ? "translate-y-0"
                             : " translate-y-[-50vh] delay-500"
                             }`}>
-                        cart
+                        <button className="bg-white absolute bottom-[12px] rounded-lg font-bold text-black w-64 min-h-[40px]">Checkout</button>
                     </div>
                 </div>
             </div>
