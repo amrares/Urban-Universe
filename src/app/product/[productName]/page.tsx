@@ -1,10 +1,10 @@
 "use client";
-import { produse, preturi } from "@/app/page";
+import { produse } from "@/app/page";
 import React, { useState, useEffect } from "react";
 
 function searchIndex(props: any) {
     for (let i = 0; i < produse.length; i++) {
-        if (produse[i] === props) {
+        if (produse[i].name === props) {
             return i;
         }
     }
@@ -13,7 +13,7 @@ function searchIndex(props: any) {
 
 function Page(props: any) {
     const name = decodeURIComponent(props.params.productName);
-    const price = preturi[searchIndex(name)]
+    const price = produse[searchIndex(name)].price;
 
     const [selectedSize, setSelectedSize] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);

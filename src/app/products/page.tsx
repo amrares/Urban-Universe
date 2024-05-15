@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { produse, preturi } from "../page";
+import { produse } from "../page";
 
 export default function Page() {
     return (
@@ -7,11 +7,11 @@ export default function Page() {
             <div className="flex justify-between m-24 gap-4 w-full h-full flex-wrap">
                 {produse.map((produs, index) => {
                     return (
-                        <a href={"/product/" + produs} className="w-[25%]">
+                        <a href={"/product/" + produs.name} className="w-[25%]">
                             <div className="border-solid flex flex-col justify-center items-center w-full min-h-[650px] hover:scale-110 hover:cursor-pointer transition-all duration-300">
-                                <img src={"/" + produs + ".jpg"} alt="" />
-                                <h1 className="text-3xl text-center capitalize text-white">{produs} {index}</h1>
-                                <h1 className="text-2xl text-center text-white brightness-75">{preturi[index]}</h1>
+                                <img src={"/" + produs.name + ".jpg"} alt="" />
+                                <h1 className="text-3xl text-center capitalize text-white">{produs.name} {index}</h1>
+                                <h1 className="text-2xl text-center text-white brightness-75">{produs.price}</h1>
                             </div>
                         </a>
                     )

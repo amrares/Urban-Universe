@@ -2,27 +2,42 @@ import { FeaturedSection } from "@/components/FeaturedSection";
 import Image from "next/image";
 
 const produse = [
-    "black tee",
-    "black tee",
-    "black tee",
-    "black hoodie",
-    "black hoodie",
-    "black hoodie",
-    "black shorts",
-    "black shorts",
-    "black shorts"
-]
-
-const preturi = [
-    "19.99€",
-    "19.99€",
-    "19.99€",
-    "49.99€",
-    "49.99€",
-    "49.99€",
-    "29.99€",
-    "29.99€",
-    "29.99€"
+    {
+        name: "t-shirt",
+        price: "19.99€"
+    },
+    {
+        name: "t-shirt",
+        price: "19.99€"
+    },
+    {
+        name: "t-shirt",
+        price: "19.99€"
+    },
+    {
+        name: "hoodie",
+        price: "49.99€"
+    },
+    {
+        name: "hoodie",
+        price: "49.99€"
+    },
+    {
+        name: "hoodie",
+        price: "49.99€"
+    },
+    {
+        name: "shorts",
+        price: "29.99€"
+    },
+    {
+        name: "shorts",
+        price: "29.99€"
+    },
+    {
+        name: "shorts",
+        price: "29.99€"
+    }
 ]
 
 export default function Home() {
@@ -50,4 +65,4 @@ export default function Home() {
     );
 }
 
-export { produse, preturi }
+export { produse }
