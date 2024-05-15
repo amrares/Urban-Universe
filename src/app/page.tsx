@@ -4,38 +4,74 @@ import Image from "next/image";
 const produse = [
     {
         name: "t-shirt",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/t-shirt.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/t-shirt_white.jpg" }
+        ],
         price: "19.99"
     },
     {
         name: "t-shirt",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/t-shirt.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/t-shirt_white.jpg" }
+        ],
         price: "19.99"
     },
     {
         name: "t-shirt",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/t-shirt.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/t-shirt_white.jpg" }
+        ],
         price: "19.99"
     },
     {
         name: "hoodie",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/hoodie.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/hoodie_white.jpg" }
+        ],
         price: "49.99"
     },
     {
         name: "hoodie",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/hoodie.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/hoodie_white.jpg" }
+        ],
         price: "49.99"
     },
     {
         name: "hoodie",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/hoodie.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/hoodie_white.jpg" }
+        ],
         price: "49.99"
     },
     {
         name: "shorts",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/shorts.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/shorts_white.jpg" }
+        ],
         price: "29.99"
     },
     {
         name: "shorts",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/shorts.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/shorts_white.jpg" }
+        ],
         price: "29.99"
     },
     {
         name: "shorts",
+        colors: [
+            { name: "spatial black", color: "black", imageUrl: "/shorts.jpg" },
+            { name: "sunlight white", color: "white", imageUrl: "/shorts_white.jpg" }
+        ],
         price: "29.99"
     }
 ]

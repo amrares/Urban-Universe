@@ -16,11 +16,13 @@ function Page(props: any) {
     const price = produse[searchIndex(name)].price;
 
     const [selectedSize, setSelectedSize] = useState(null);
-    const [selectedColor, setSelectedColor] = useState(null);
+    const [selectedColor, setSelectedColor] = useState("black");
     const [cartList, setCartList] = useState<{ size: string; color: string; name: string; price: string }[]>(() => {
         const savedCart = localStorage.getItem('cart');
         return savedCart ? JSON.parse(savedCart) : [];
     });
+    const selectedProduct = produse[searchIndex(name)];
+    const [productImage, setProductImage] = useState("");
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartList));
@@ -30,9 +32,25 @@ function Page(props: any) {
         setSelectedSize((prevSize) => (prevSize === size ? null : size));
     };
 
+    useEffect(() => {
+        // Set the product image to the black color image when component mounts
+        const blackColor = selectedProduct.colors.find((color: any) => color.color === "black");
+        if (blackColor) {
+            setProductImage(blackColor.imageUrl);
+        }
+    }, [name]); // Run this effect whenever the product name changes
+
     const handleColorSelect = (color: any) => {
-        setSelectedColor((prevColor) => (prevColor === color ? null : color));
+        setSelectedColor(() => {{
+                const selectedColor = selectedProduct.colors.find((c: any) => c.color === color);
+                if (selectedColor) {
+                    setProductImage(selectedColor.imageUrl);
+                }
+                return color; // Select the new color
+            }
+        });
     };
+    
       
     const handleAddToCart = () => {
         if (selectedSize && selectedColor) {
@@ -45,7 +63,7 @@ function Page(props: any) {
             setCartList([...cartList, newItem]);
             // Clear selection after adding to cart
             setSelectedSize(null);
-            setSelectedColor(null);
+            setSelectedColor("black");
         } else {
             alert("Please select both size and color.");
         }
@@ -114,7 +132,7 @@ function Page(props: any) {
 
                 {/* Image */}
                 <div className=" items-center justify-center flex flex-col w-[50%] h-[650px]">
-                    <img src={"/" + decodeURIComponent(props.params.productName) + ".jpg"} alt="" />
+                    <img src={productImage} alt="" />
                 </div>
             </div>
         </div>

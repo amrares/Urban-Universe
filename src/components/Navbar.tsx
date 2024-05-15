@@ -5,6 +5,7 @@ import { LinkMeniu } from "./LinkMeniu";
 
 export function Navbar() {
     const [isCartShown, setIsCartShown] = useState(false);
+    const [isBlack, setIsBlack] = useState(true);
     const [cartList, setCartList] = useState<{ size: string; color: string; name: string; price: number }[]>(() => {
         const savedCart = localStorage.getItem('cart');
         return savedCart ? JSON.parse(savedCart) : [];
@@ -64,7 +65,7 @@ export function Navbar() {
                             return (
                                 <div className="border-b-2 gap-4 flex justify-center items-center w-full max-h-[50px] p-4 hover:cursor-default transition-all duration-300">
                                     <a href={"/product/" + produs.name}>
-                                        <img className="h-[50px] mb-4 transition-all duration-300 hover:scale-110" src={"/" + produs.name + ".jpg"} alt="" />
+                                        <img className="h-[50px] mb-4 transition-all duration-300 hover:scale-110" src={produs.color === "black" ? "/" + produs.name + ".jpg" : "/" + produs.name + "_white.jpg"} alt="" />
                                     </a>
                                     <h1 className="text-m text-center text-white brightness-75 mb-4">{produs.size} </h1>
                                     <div className="mb-4">

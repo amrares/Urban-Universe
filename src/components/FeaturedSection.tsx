@@ -11,21 +11,12 @@ import {
 } from "@/components/ui/carousel"
 
 const produse = [
-    "otrava de sobolani",
-    "caiet A4",
-    "pix",
-    "laptop",
-    "telefon",
-    "masina",
-    "bicicleta",
-    "papuci",
-    "ochelari",
-    "pantaloni",
-    "tricou",
-    "palarie",
-    "ceas",
-    "bratara",
-    "cercei",
+    "t-shirt",
+    "hoodie",
+    "shorts",
+    "t-shirt_white",
+    "hoodie_white",
+    "shorts_white"
 ]
 
 export function FeaturedSection() {
