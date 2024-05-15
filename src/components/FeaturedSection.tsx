@@ -40,15 +40,12 @@ export function FeaturedSection() {
                     return (
                         <CarouselItem key={index} className="basis-1/5">
                             <a href={"/product/" + produs}>
-                                <Card>
-                                    <CardContent className="flex aspect-square transition-all duration-500 hover:brightness-75">
+                                <Card className="border-transparent bg-zinc-800">
+                                    <CardContent className="flex aspect-square justify-center transition-all duration-500 hover:brightness-75">
                                         <img src={"/" + produs + ".jpg"} alt="" />
                                     </CardContent>
                                 </Card>
                             </a>
-
-
-
                         </CarouselItem>
                     )
                 })}

@@ -51,17 +51,6 @@ function Page(props: any) {
         }
     };
 
-    const handleRemoveFromCart = (index: number) => {
-        setCartList((prevCartList) => {
-            // Create a copy of the cartList array
-            const updatedCartList = [...prevCartList];
-            // Remove the item at the specified index
-            updatedCartList.splice(index, 1);
-            // Return the updated cartList
-            return updatedCartList;
-        });
-    };
-
     return (
         <div className="flex items-center justify-center min-h-screen bg-zinc-800">
             <div className=" flex w-[70%] h-[650px]">
@@ -119,7 +108,7 @@ function Page(props: any) {
                         className="mt-12 text-white font-bold text-l border-solid border-2 border-white rounded-lg p-3 uppercase brightness-75 hover:brightness-100 hover:scale-110 transition-all duration-300"
                         onClick={handleAddToCart}
                     >
-                        Add to cart - {price}
+                        Add to cart - {price}€
                     </button>
                 </div>
 

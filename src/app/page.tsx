@@ -4,39 +4,39 @@ import Image from "next/image";
 const produse = [
     {
         name: "t-shirt",
-        price: "19.99€"
+        price: "19.99"
     },
     {
         name: "t-shirt",
-        price: "19.99€"
+        price: "19.99"
     },
     {
         name: "t-shirt",
-        price: "19.99€"
+        price: "19.99"
     },
     {
         name: "hoodie",
-        price: "49.99€"
+        price: "49.99"
     },
     {
         name: "hoodie",
-        price: "49.99€"
+        price: "49.99"
     },
     {
         name: "hoodie",
-        price: "49.99€"
+        price: "49.99"
     },
     {
         name: "shorts",
-        price: "29.99€"
+        price: "29.99"
     },
     {
         name: "shorts",
-        price: "29.99€"
+        price: "29.99"
     },
     {
         name: "shorts",
-        price: "29.99€"
+        price: "29.99"
     }
 ]
 
