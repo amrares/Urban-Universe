@@ -1,6 +1,6 @@
 "use client";
 import { produse, preturi } from "@/app/page";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function searchIndex(props: any) {
     for (let i = 0; i < produse.length; i++) {
@@ -12,10 +12,19 @@ function searchIndex(props: any) {
 }
 
 function Page(props: any) {
+    const name = decodeURIComponent(props.params.productName);
+    const price = preturi[searchIndex(name)]
 
     const [selectedSize, setSelectedSize] = useState(null);
     const [selectedColor, setSelectedColor] = useState(null);
-    const [cartList, setCartList] = useState<{ size: string; color: string }[]>([]);
+    const [cartList, setCartList] = useState<{ size: string; color: string; name: string; price: string }[]>(() => {
+        const savedCart = localStorage.getItem('cart');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartList));
+    }, [cartList]);
 
     const handleSizeSelect = (size: any) => {
         setSelectedSize((prevSize) => (prevSize === size ? null : size));
@@ -23,13 +32,15 @@ function Page(props: any) {
 
     const handleColorSelect = (color: any) => {
         setSelectedColor((prevColor) => (prevColor === color ? null : color));
-      };
+    };
       
     const handleAddToCart = () => {
         if (selectedSize && selectedColor) {
             const newItem = {
                 size: selectedSize,
                 color: selectedColor,
+                name: name,
+                price: price
             };
             setCartList([...cartList, newItem]);
             // Clear selection after adding to cart
@@ -40,11 +51,22 @@ function Page(props: any) {
         }
     };
 
+    const handleRemoveFromCart = (index: number) => {
+        setCartList((prevCartList) => {
+            // Create a copy of the cartList array
+            const updatedCartList = [...prevCartList];
+            // Remove the item at the specified index
+            updatedCartList.splice(index, 1);
+            // Return the updated cartList
+            return updatedCartList;
+        });
+    };
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-zinc-800">
             <div className=" flex w-[70%] h-[650px]">
                 <div className=" items-center justify-center flex flex-col w-[50%] h-[650px]">
-                    <h1 className="text-6xl text-white font-bold uppercase">{decodeURIComponent(props.params.productName)}</h1>
+                    <h1 className="text-6xl text-white font-bold uppercase">{name}</h1>
                     <h1 className="text-l mt-4 text-white brightness-75 text uppercase">100% cotton & manufactured in RO,</h1>
                     <h1 className="text-l text-white brightness-75 text uppercase">Oversized fit</h1>
 
@@ -97,25 +119,13 @@ function Page(props: any) {
                         className="mt-12 text-white font-bold text-l border-solid border-2 border-white rounded-lg p-3 uppercase brightness-75 hover:brightness-100 hover:scale-110 transition-all duration-300"
                         onClick={handleAddToCart}
                     >
-                        Add to cart - {preturi[searchIndex(decodeURIComponent(props.params.productName))]}
+                        Add to cart - {price}
                     </button>
                 </div>
 
                 {/* Image */}
                 <div className=" items-center justify-center flex flex-col w-[50%] h-[650px]">
                     <img src={"/" + decodeURIComponent(props.params.productName) + ".jpg"} alt="" />
-                </div>
-
-                {/* Cart */}
-                <div className="mt-12">
-                    <h2 className="text-white text-2xl font-bold">Cart</h2>
-                    <ul className="text-white">
-                        {cartList.map((item, index) => (
-                            <li key={index}>
-                                Size: {item.size}, Color: {item.color}
-                            </li>
-                        ))}
-                    </ul>
                 </div>
             </div>
         </div>
