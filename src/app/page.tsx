@@ -88,7 +88,7 @@ export default function Home() {
                     height={300}
                 />
                 <h1 className="text-xl text-white flex gap-1">
-                    The <p className="text-green-400">clothing</p> brand.
+                    The <p className="text-green-400">#1</p> online reseller.
                 </h1>
             </div>
 
