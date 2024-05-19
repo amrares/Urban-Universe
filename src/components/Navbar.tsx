@@ -68,7 +68,7 @@ export function Navbar() {
                                         </a>
                                         <h1 className="text-m text-center text-white brightness-75 mb-4">{produs.size} </h1>
                                         <div className="mb-4">
-                                            <h1 className="text-l text-center capitalize text-white">{produs.name} {index}</h1>
+                                            <h1 className="text-l text-center capitalize text-white">{produs.name}</h1>
                                             <h1 className="text-m text-center text-white brightness-75">{produs.price}€ </h1>
                                         </div>
                                         <div className="hover:cursor-pointer mb-4 transition-all duration-300 hover:scale-110" onClick={() => handleRemoveFromCart(index)}>🗑️</div>
